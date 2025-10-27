@@ -17,24 +17,30 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const form = e.target as HTMLFormElement;
-
     try {
-      // Submit to Netlify
-      const formDataObj = new FormData(form);
-      const formDataEntries: Record<string, string> = {};
-      formDataObj.forEach((value, key) => {
-        formDataEntries[key] = value.toString();
-      });
-
-      const response = await fetch('/', {
+      // Submit to Web3Forms
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formDataEntries).toString(),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: '77f9af2f-7a5a-4461-bb0b-4f6f1f9ccdc7',
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          message: formData.message,
+          to: 'quazarcore@gmail.com',
+          subject: 'New Contact Form Submission from QuazarCore Website',
+          from_name: formData.name,
+          reply_to: formData.email,
+        }),
       });
 
-      if (response.ok) {
-        console.log('Form submitted successfully to Netlify!');
+      const result = await response.json();
+
+      if (result.success) {
+        console.log('Form submitted successfully to Web3Forms!');
         setSubmitted(true);
 
         // Reset after 3 seconds
@@ -43,7 +49,7 @@ export default function ContactPage() {
           setFormData({ name: '', email: '', company: '', message: '' });
         }, 3000);
       } else {
-        console.error('Form submission failed');
+        console.error('Form submission failed:', result.message);
         alert('Failed to submit form. Please try again.');
       }
     } catch (error) {
@@ -218,18 +224,9 @@ export default function ContactPage() {
               </AnimatePresence>
 
               <form
-                name="contact"
-                method="POST"
-                data-netlify="true"
-                netlify-honeypot="bot-field"
                 onSubmit={handleSubmit}
                 className="space-y-6"
               >
-                {/* Netlify Forms hidden fields */}
-                <input type="hidden" name="form-name" value="contact" />
-                <div hidden>
-                  <input name="bot-field" />
-                </div>
                 {/* Name Field */}
                 <div className="relative">
                   <motion.label
