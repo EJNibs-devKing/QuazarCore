@@ -332,8 +332,8 @@ export default function Home() {
               Ready to Scale at Cloud Speed?
             </h2>
             <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
-              Join <span className="text-cyan-400 font-cosmic font-bold tracking-wide">200+ enterprise clients</span> who trust QuazarCore for their Salesforce and cloud infrastructure.
-              <span className="block mt-2 text-white font-cosmic font-bold">Get a free architecture assessment</span>
+              Empowering enterprises with intelligent Salesforce and cloud architecture designed to scale with precision.
+              <span className="block mt-2 text-white font-cosmic font-bold">Schedule your consultation.</span>
             </p>
             <Link
               href="/contact"
