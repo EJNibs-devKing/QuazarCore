@@ -45,19 +45,19 @@ export default function ThoughtLeadershipPage() {
 
   const insights = [
     {
-      stat: '500+',
+      stat: '25+',
       label: 'Projects Delivered',
     },
     {
-      stat: '98%',
+      stat: '100%',
       label: 'Client Satisfaction',
     },
     {
-      stat: '15+',
+      stat: '10+',
       label: 'Industries Served',
     },
     {
-      stat: '50+',
+      stat: '10+',
       label: 'Salesforce Certifications',
     },
   ];
