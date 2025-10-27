@@ -151,9 +151,9 @@ export default function Home() {
                 icon: '⚡',
               },
               {
-                title: 'Cloud Architecture',
-                description: 'AWS, Azure, and GCP solutions with Kubernetes, microservices, and serverless for infinite scalability',
-                icon: '☁️',
+                title: 'Digital Transformation',
+                description: 'Driving end-to-end digital evolution with Salesforce, cloud, and data-first innovation.',
+                icon: '🔄',
               },
               {
                 title: 'Digital Innovation',
@@ -161,9 +161,9 @@ export default function Home() {
                 icon: '🚀',
               },
               {
-                title: 'DevOps & Support',
-                description: '24/7 managed services, CI/CD pipelines, and continuous optimization for peak performance',
-                icon: '🛡️',
+                title: 'Industry Specific',
+                description: 'Industry-specific innovation — transforming challenges into cloud-powered opportunities',
+                icon: '🏭',
               },
             ].map((solution, index) => (
               <motion.div
